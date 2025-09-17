@@ -1,5 +1,4 @@
 <?php
-    session_start();
     require '../config.php';
     require 'auth_admin.php';
 ?>
@@ -68,7 +67,7 @@
                     <div class="card-body">
                         <h5 class="card-title text-dark">หมวดหมู่</h5>
                         <p class="card-text text-muted">เพิ่ม/แก้ไขหมวดหมู่สินค้า</p>
-                        <a href="categories.php" class="btn btn-dark w-100">จัดการหมวดหมู่</a>
+                        <a href="category.php" class="btn btn-dark w-100">จัดการหมวดหมู่</a>
                     </div>
                 </div>
             </div>
