@@ -37,9 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 exit();
             }
         } catch (PDOException $e) {
-            // ข้อความนี้ควร log จริงๆ แล้วแสดงข้อความกลางๆ ให้ผู้ใช้
             $error[] = "ไม่สามารถบันทึกข้อมูลได้ กรุณาลองใหม่อีกครั้ง";
-            // error_log($e->getMessage());
         }
     }
 }
@@ -51,29 +49,87 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <title>สมัครสมาชิก</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-<style> 
-  body { background: linear-gradient(to right, #686868ff); 
-  font-family: 'Sarabun', sans-serif; 
-  } 
-  .register-card { 
-  background: white; border-radius: 20px; 
-  padding: 40px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
-  } 
-  .form-label { 
-    font-weight: bold; 
-  } 
-  .btn-primary { 
-    border-radius: 30px; 
-  } 
-  </style>
+<style>
+:root {
+    --tan: #D9AB82;
+    --rust: #8C594D;
+    --cloud: #A6A6A6;
+    --ash: #404040;
+    --night: #0D0D0D;
+}
 
+body {
+    background-color: var(--cloud);
+    font-family: 'Sarabun', sans-serif;
+    padding-top: 60px;
+    color: var(--night);
+}
+
+.register-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+h2 {
+    text-align: center;
+    color: var(--rust);
+    margin-bottom: 30px;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: var(--tan);
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    background-color: var(--rust);
+    color: #fff;
+}
+
+.btn-outline-secondary {
+    border-radius: 30px;
+    color: var(--ash);
+}
+
+.btn-outline-secondary:hover {
+    background-color: var(--ash);
+    color: #fff;
+}
+
+.alert {
+    border-radius: 12px;
+    max-width: 600px;
+    margin: 15px auto;
+    text-align: center;
+}
+
+.alert-danger {
+    background-color: var(--rust);
+    color: #fff;
+    border: none;
+}
+
+.alert-success {
+    background-color: var(--tan);
+    color: var(--night);
+    border: none;
+}
+</style>
 </head>
 <body>
 <div class="container my-5">
   <div class="row justify-content-center">
     <div class="col-lg-8">
       <div class="register-card">
-        <h2 class="text-center mb-4">สมัครสมาชิก</h2>
+        <h2>สมัครสมาชิก</h2>
 
         <?php if (!empty($error)): ?>
           <div class="alert alert-danger">
@@ -115,11 +171,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button type="submit" class="btn btn-primary btn-lg">สมัครสมาชิก</button>
             <a href="login.php" class="btn btn-outline-secondary">กลับไปหน้าล็อกอิน</a>
           </div>
-        </form>
+        </form> 
 
       </div>
     </div>
   </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
